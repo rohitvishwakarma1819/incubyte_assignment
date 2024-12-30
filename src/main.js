@@ -8,6 +8,14 @@ export function add(numbers) {
     const parts = numbers.split("\n");
     delimiter = parts[0].slice(2);
     numbers = parts[1];
+
+    // If the delimiter is `-`, replace all occurrences of `--` with `-`
+    if (delimiter === "-") {
+      numbers = numbers.replace(/--/g, "#");
+      numbers = numbers.replace(/-/g, "|");
+      numbers = numbers.replace(/#/g, "|-");
+      delimiter = /\|/;
+    }
   }
   const nums = numbers.split(delimiter).map((num) => parseInt(num, 10));
   const negatives = nums.filter((num) => num < 0);
