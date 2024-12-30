@@ -30,5 +30,6 @@ test("should return sum of multiple numbers having both comma and newline delimi
 
 test("should return sum of multiple numbers having custom delimiter", () => {
   expect(add("//;\n1;2")).toBe(3);
-  expect(add("//#\n1#3")).toBe(4);
+  expect(add("//#\n1#3#4")).toBe(8);
+  expect(add("//|\n1|3|5")).toBe(9);
 });
