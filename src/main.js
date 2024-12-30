@@ -1,3 +1,27 @@
+/**
+ * Adds a list of numbers provided as a string.
+ *
+ * This function supports custom delimiters, specified at the beginning of the string in the format:
+ * `//<delimiter>\n<numbers>`.
+ *
+ * - Default delimiters are `,` and `\n`.
+ * - Custom delimiters can be any single character.
+ * - If the custom delimiter is `-`, the function processes it uniquely to avoid conflicts with negative numbers.
+ *
+ * @param {string} numbers - A string of numbers separated by delimiters.
+ *   Example: "1,2,3" or "//;\n1;2;3".
+ *
+ * @throws {Error} If the string contains negative numbers, an error is thrown listing the negatives.
+ *
+ * @returns {number} The sum of the numbers in the string. Returns 0 if the input string is empty.
+ *
+ * @example
+ * add("1,2,3"); // Returns 6
+ * add("//;\n1;2;3"); // Returns 6
+ * add(""); // Returns 0
+ * add("//-\n1-2-3"); // Returns 6
+ * add("1,-2,3"); // Throws Error: negatives numbers not allowed -2
+ */
 export function add(numbers) {
   if (numbers === "") {
     return 0;
