@@ -9,7 +9,11 @@ export function add(numbers) {
     delimiter = parts[0].slice(2);
     numbers = parts[1];
   }
-  const nums = numbers.split(delimiter);
-  const result = nums.reduce((prev, curr) => prev + parseInt(curr, 10), 0);
+  const nums = numbers.split(delimiter).map((num) => parseInt(num, 10));
+  const negatives = nums.filter((num) => num < 0);
+  if (negatives.length) {
+    throw new Error(`negatives numbers not allowed ${negatives.join(", ")}`);
+  }
+  const result = nums.reduce((prev, curr) => prev + curr, 0);
   return result;
 }
