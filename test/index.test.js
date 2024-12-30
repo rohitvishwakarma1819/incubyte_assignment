@@ -38,3 +38,10 @@ test("should throw an error when given negative numbers", () => {
   expect(() => add("-1")).toThrow("negatives numbers not allowed -1");
   expect(() => add("-1,2,-3")).toThrow("negatives numbers not allowed -1, -3");
 });
+
+test("should throw an error when given negative numbers if delimiter is also - symbol", () => {
+  expect(() => add("-1")).toThrow("negatives numbers not allowed -1");
+  expect(() => add("//-\n1,--2,-3")).toThrow(
+    "negatives numbers not allowed -2"
+  );
+});
