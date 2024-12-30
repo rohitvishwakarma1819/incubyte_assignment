@@ -33,3 +33,8 @@ test("should return sum of multiple numbers having custom delimiter", () => {
   expect(add("//#\n1#3#4")).toBe(8);
   expect(add("//|\n1|3|5")).toBe(9);
 });
+
+test("should throw an error when given negative numbers", () => {
+  expect(() => add("-1")).toThrow("negatives numbers not allowed -1");
+  expect(() => add("-1,2,-3")).toThrow("negatives numbers not allowed -1, -3");
+});
