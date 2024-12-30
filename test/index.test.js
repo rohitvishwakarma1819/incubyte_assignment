@@ -22,3 +22,8 @@ test("should return sum of two numbers when given two numbers separated by new l
   expect(add("1\n2")).toBe(3);
   expect(add("1\n3")).toBe(4);
 });
+
+test("should return sum of multiple numbers having both comma and newline delimiters", () => {
+  expect(add("1\n2,3")).toBe(6);
+  expect(add("1\n3,4,5")).toBe(13);
+});
