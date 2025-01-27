@@ -46,6 +46,21 @@ export function add(numbers) {
   if (negatives.length) {
     throw new Error(`negatives numbers not allowed ${negatives.join(", ")}`);
   }
-  const result = nums.reduce((prev, curr) => prev + curr, 0);
+  const result = nums.reduce((prev, curr) => {
+    return solve(prev, curr, delimiter);
+  }, getDefaultValue(delimiter));
+
   return result;
+}
+
+function solve(prev, curr, delimiter) {
+  if (delimiter === '*') {
+    return prev * curr;
+  }
+
+  return prev + curr;
+}
+
+function getDefaultValue(delimiter) {
+  return delimiter === '*' ? 1 : 0;
 }

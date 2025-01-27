@@ -45,3 +45,7 @@ test("should throw an error when given negative numbers if delimiter is also - s
     "negatives numbers not allowed -2"
   );
 });
+
+test("multiply number if delimiter is *", () => {
+  expect(add("//*\n1*3*4")).toBe(12);
+});
